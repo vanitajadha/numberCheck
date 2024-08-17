@@ -1,1 +1,51 @@
-<p>Hello All</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Input</title>
+    <style>
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 40%;
+    box-sizing: border-box;
+}
+p#output {
+    margin-top: 20px;
+    font-size: 18px;
+}
+body{
+    justify-content: center;
+    align-items: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter a Number</h2>
+        <input type="number" id="numberInput" placeholder="Enter a number" oninput="checkNumber()">
+        <p id="output"></p>
+    </div>
+    <script>
+        function checkNumber() {
+    const input = document.getElementById('numberInput').value;
+    const output = document.getElementById('output');
+    const number = parseInt(input, 10);
+
+    if (isNaN(number)) {
+        output.textContent = 'Please enter a valid number';
+    } else if (number < 0) {
+        output.textContent = 'Please enter a positive value';
+    } else if (number % 2 === 0) {
+        output.textContent = `The next 3 even numbers are: ${number + 2}, ${number + 4}, ${number + 6}`;
+    } else {
+        output.textContent = `The next 3 odd numbers are: ${number + 2}, ${number + 4}, ${number + 6}`;
+    }
+}
+
+    </script>
+</body>
+</html>
